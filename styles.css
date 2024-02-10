@@ -1,9 +1,16 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #auth-container {
@@ -11,31 +18,60 @@ body {
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chat-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #chat-box {
-    height: 300px;
+    max-height: 400px;
     overflow-y: scroll;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
     padding: 10px;
-    margin-top: 20px;
 }
 
 #message-input {
     width: 70%;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: #4CAF50;
 }
 
 button {
     padding: 10px;
-    margin-top: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #45a049;
 }
+
+button.logout {
+    background-color: #f44336;
+}
+
+button.logout:hover {
+    background-color: #d32f2f;
+}
+
+/* Add more styles for user authentication forms, buttons, etc. */
