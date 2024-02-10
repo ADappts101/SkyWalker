@@ -1,77 +1,55 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
+    padding-bottom: 60px;
 }
 
-#auth-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.container .content {
+    text-align: center;
 }
 
-#chat-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.container .content h3 {
+    font-size: 30px;
+    color: #333;
 }
 
-#chat-box {
-    max-height: 400px;
-    overflow-y: scroll;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-#message-input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ddd;
+.container .content h3 span {
+    background-color: crimson;
     border-radius: 5px;
+    padding: 0 15px;
+    color: #fff;
 }
 
-#message-input:focus {
-    outline: none;
-    border-color: #4CAF50;
+.container .content h1 {
+    font-size: 30px;
+    color: #333;
 }
 
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.container .content p {
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #45a049;
+.container .content .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #333;
+    font-size: 5px;
+    margin: 0 15px;
+    color: #fff;
 }
-
-button.logout {
-    background-color: #f44336;
-}
-
-button.logout:hover {
-    background-color: #d32f2f;
-}
-
-/* Add more styles for user authentication forms, buttons, etc. */
