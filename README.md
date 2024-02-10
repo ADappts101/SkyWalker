@@ -18,5 +18,5 @@ Skywalker is a real-time chat application that allows users to communicate insta
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Skywalker.git
+   git clone https://github.com/BearToRear/Skywalker.git
 # SkyWalker
