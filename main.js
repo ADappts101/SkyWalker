@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const usernameInput = document.getElementById('username-input');
 
     let username = '';
+    const auth = firebase.auth();
 
     // Function to fetch and display messages
     function fetchMessages() {
-        // You might want to replace this with your PHP backend endpoint
         fetch('get_messages.php')
             .then(response => response.json())
             .then(data => {
@@ -24,9 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function sendMessage() {
         const message = messageInput.value.trim();
         if (message !== "") {
-            username = usernameInput.value.trim() || 'Anonymous'; // Default to 'Anonymous' if no name is provided
+            username = auth.currentUser ? auth.currentUser.email : 'Anonymous';
 
-            // You might want to replace this with your PHP backend endpoint
             fetch('send_message.php', {
                 method: 'POST',
                 headers: {
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
-                // Fetch and display messages after sending
                 fetchMessages();
             })
             .catch(error => console.error('Error sending message:', error));
@@ -45,9 +43,56 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Fetch and display messages initially
-    fetchMessages();
+    // Function to sign up a user
+    function signup() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-    // Set an interval to update the chat every 5 seconds (adjust as needed)
-    setInterval(fetchMessages, 5000);
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log("User signed up:", user);
+            })
+            .catch((error) => {
+                console.error("Error signing up:", error.message);
+            });
+    }
+
+    // Function to log in a user
+    function login() {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log("User logged in:", user);
+            })
+            .catch((error) => {
+                console.error("Error logging in:", error.message);
+            });
+    }
+
+    // Function to log out the current user
+    function logout() {
+        auth.signOut()
+            .then(() => {
+                console.log("User signed out");
+            })
+            .catch((error) => {
+                console.error("Error signing out:", error.message);
+            });
+    }
+
+    // Listen for authentication state changes
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in
+            console.log("User is signed in:", user);
+            fetchMessages();
+        } else {
+            // User is signed out
+            console.log("User is signed out");
+        }
+    });
 });
