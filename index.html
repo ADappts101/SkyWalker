@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="auth-container">
+    <div id="auth-container" class="container">
         <h2>Authentication</h2>
         <form id="signup-form">
             <label for="email">Email:</label>
@@ -25,10 +25,12 @@
         </form>
     </div>
 
-    <div id="chat-box"></div>
-    <input type="text" id="message-input" placeholder="Type your message">
-    <button onclick="sendMessage()">Send</button>
-    <button type="button" onclick="logout()">Logout</button>
+    <div id="chat-container" class="container">
+        <div id="chat-box"></div>
+        <input type="text" id="message-input" placeholder="Type your message">
+        <button onclick="sendMessage()">Send</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js"></script>
